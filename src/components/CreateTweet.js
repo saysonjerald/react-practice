@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const CreateTweet = () => {
+    const [textInput, setTextInput] = useState("");
+    
+    const userInputHandler = (e) => {
+        setTextInput(e.target.value);
+    }
+    
     return(
         <form action="#">
-            <h1>What's on your mind?</h1>
-            <textarea name="tweet" id="tweet" cols="50" rows="5"></textarea>
+            <textarea onChange={userInputHandler} value={textInput} name="tweet" id="tweet" cols="50" rows="5"></textarea>
             <button>Submit</button>
+            <h1>{textInput}</h1>
         </form>
     )
 }
